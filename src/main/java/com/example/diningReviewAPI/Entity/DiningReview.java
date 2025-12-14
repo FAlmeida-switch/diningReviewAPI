@@ -20,8 +20,9 @@ public class DiningReview {
     @JoinColumn(name="RESTAURANT_ID", nullable = false)
     private Restaurant _restaurant;
 
-    @Column(name="SUBMITTED_BY", nullable = false)
-    private String _submittedBy;
+    @ManyToOne
+    @JoinColumn(name="USER_ID", nullable = false)
+    private User _submittedBy;
 
     @Column(name="PEANUT")
     private Integer _peanut;
@@ -41,7 +42,7 @@ public class DiningReview {
 
     public Restaurant getRestaurant() { return this._restaurant; }
 
-    public String getSubmittedBy() { return this._submittedBy; }
+    public User getSubmittedBy() { return this._submittedBy; }
 
     public Integer getPeanut() { return this._peanut; }
 
@@ -56,7 +57,7 @@ public class DiningReview {
 
     private void setRestaurant(Restaurant newRestaurant) { this._restaurant = newRestaurant; }
 
-    public void setSubmittedBy(String newSubmittedBy) { this._submittedBy = newSubmittedBy; }
+    public void setSubmittedBy(User newSubmittedBy) { this._submittedBy = newSubmittedBy; }
 
     public void setPeanut(Integer newPeanut) { this._peanut = newPeanut; }
 
